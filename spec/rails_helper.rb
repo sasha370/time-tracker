@@ -72,6 +72,10 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 
+# Для Devise тестов
+include Warden::Test::Helpers
+Warden.test_mode!
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
