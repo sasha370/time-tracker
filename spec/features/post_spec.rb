@@ -36,6 +36,24 @@ describe 'navigate' do
     end
   end
 
+  describe 'new' do
+    # Можно создать новый Пост
+    it 'has a link from thу homepage' do
+      visit root_path
+      click_link("new_post_from_nav")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
+  describe 'delete' do
+    it 'can be delete' do
+      @post =  FactoryBot.create(:post)
+      visit posts_path
+      click_link("delete_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+
+  end
 
   describe 'creation' do
     # Проверяем создание Постов
