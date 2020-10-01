@@ -40,26 +40,56 @@ describe 'navigate' do
   describe 'creation' do
     # Проверяем создание Постов
 
-    before do # перед каждым тестом нужно посетить страницу "Создать новый пост"
+    before do
+      # перед каждым тестом нужно посетить страницу "Создать новый пост"
       visit new_post_path
     end
 
-    it 'has a form that can be reached' do # при посещении страница должна возвращать код 200
+    it 'has a form that can be reached' do
+      # при посещении страница должна возвращать код 200
       expect(page.status_code).to eq(200)
     end
 
-    it 'can be created from new form page ' do  # Pfjgkyztv форму и отправляем. по результатам долджны увидеть содержимое поста
+    it 'can be created from new form page ' do
+      # Pfjgkyztv форму и отправляем. по результатам долджны увидеть содержимое поста
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Some rationale"
       click_on 'Save'
       expect(page).to have_content("Some rationale")
     end
 
-    it 'will have a user associated it' do   # Проверяем, что пост подцепился к текущему пользователю
+    it 'will have a user associated it' do
+      # Проверяем, что пост подцепился к текущему пользователю
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "User association"
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("User association")
     end
   end
+
+  describe 'edit' do
+    before do
+      @post = FactoryBot.create(:post)
+    end
+
+
+    it 'can edit post by clicking edit on index page' do
+      # Проверяем что кнопка Edit выдает ответ 200
+      visit posts_path
+      click_link("edit_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be editing' do
+      visit edit_post_path(@post)
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: "Editing content"
+      click_on 'Save'
+      expect(page).to have_content("Editing content")
+
+    end
+
+  end
+
+
 end

@@ -1,5 +1,5 @@
-100.times do |post|
+40.times do |post|
   Post.create!(date: Date.today, rationale: "#{post} rationale content", user: User.last)
 end
 
-puts " 100 Posts was created"
+puts " 40 Posts was created"
