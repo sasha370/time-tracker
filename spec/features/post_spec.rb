@@ -48,7 +48,6 @@ describe 'navigate' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "User association"
       click_on "Save"
-      # TODO
       expect(User.last.posts.last.rationale).to eq("User association")
     end
   end

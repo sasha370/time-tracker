@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   def full_name
-    "#{first_name} #{last_name}"
+    last_name + ', ' + first_name
   end
 end
