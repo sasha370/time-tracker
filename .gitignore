@@ -42,3 +42,4 @@ yarn-debug.log*
 
 
 spec/requests/posts_request_spec.rb
+spec/requests/posts_request_spec.rb
