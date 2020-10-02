@@ -1,26 +1,26 @@
-<h1> New Post</h1>
+<h1 class="text-center"> New Post</h1>
 <hr>
 <div class="row">
-  <div class="col-md-12">
-    <%= form_for @post do |f| %>
-      <form>
+  <div class="col-md-8 ml-auto mr-auto">
+    <%= form_with model: @post, locale: true do |f| %>
 
-        <div class="form-group ">
-          <label for="date" class="col-sm-2 col-form-label">Date</label>
-            <%= f.date_field :date, class: 'form-control' %>
-        </div>
 
-        <div class="form-group ">
-          <label for="rationale" class="col-sm-2 col-form-label">Rationale</label>
-            <%= f.text_area :rationale, class: 'form-control' %>
-        </div>
+      <div class="form-group ">
+        <label for="date" class="col-sm-2 col-form-label">Date</label>
+        <%= f.date_field :date, class: 'form-control', required: true %>
+      </div>
 
-        <div class="form-group row">
-          <div class="col-sm-12">
-            <%= f.submit "Save", class: 'btn btn-primary btn-block' %>
-          </div>
+      <div class="form-group ">
+        <label for="rationale" class="col-sm-2 col-form-label">Rationale</label>
+        <%= f.text_area :rationale, class: 'form-control', required: true  %>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <%= f.submit "Save", class: 'btn btn-primary btn-block' %>
         </div>
-      </form>
+      </div>
+
 
     <% end %>
   </div>

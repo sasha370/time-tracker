@@ -40,3 +40,5 @@
 yarn-debug.log*
 .yarn-integrity
 
+
+spec/requests/posts_request_spec.rb

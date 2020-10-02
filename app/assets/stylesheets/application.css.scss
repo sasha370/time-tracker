@@ -11,9 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap
+ *= require gritter
  *= require_tree .
  *= require_self
  */
+
 
 .custom-nav{
   margin-top: 15px;
