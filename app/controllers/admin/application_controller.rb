@@ -5,11 +5,21 @@
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
 module Admin
+  # Метод, который возвращает список различных Админовских группб при добавлении люого типа Админов , достаточно будетпоменять только в этом месте
+  def self.admin_types
+    ['AdminUser']
+  end
+
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_admin
+    before_action :authenticate_user!
+
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      unless Admin.admin_types.include?(current_user.try(:type)) # Проверяем входит ли текущий пользователь в одну из групп Админов
+        flash[:alert] = " You are not authorize to access this page"
+        redirect_to root_path
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
