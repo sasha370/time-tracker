@@ -19,7 +19,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     type: Field::String,
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
-    admin: Field::Boolean,
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,7 +31,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   posts
 
   email
-  admin
+
   type
   ].freeze
 
@@ -47,7 +47,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   type
   created_at
   updated_at
-  admin
+
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -61,7 +61,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   first_name
   last_name
   type
-  admin
+
   ].freeze
 
   # COLLECTION_FILTERS
