@@ -9,16 +9,16 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
-    id: Field::Number,
-    email: Field::String,
-    encrypted_password: Field::String,
-    password: Field::String,
-    password_confirmation: Field::String,
+    id: Field::Number.with_options(searchable: false),
+    email: Field::String.with_options(searchable: true),
+    encrypted_password: Field::String.with_options(searchable: false),
+    password: Field::String.with_options(searchable: false),
+    password_confirmation: Field::String.with_options(searchable: false),
     first_name: Field::String,
     last_name: Field::String,
     type: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    created_at: Field::DateTime.with_options(searchable: false),
+    updated_at: Field::DateTime.with_options(searchable: false),
     admin: Field::Boolean,
   }.freeze
 
@@ -29,7 +29,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
   posts
-  id
+
   email
   admin
   type
@@ -39,10 +39,9 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
   posts
-  id
+
   email
-  password
-  password_confirmation
+
   first_name
   last_name
   type
@@ -75,7 +74,9 @@ class AdminUserDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+      email: ->(resources) { resources.where(email: true) }
+  }.freeze
 
   # Overwrite this method to customize how admin users are displayed
   # across all pages of the admin dashboard.
