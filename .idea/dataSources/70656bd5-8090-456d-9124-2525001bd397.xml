@@ -209,17 +209,22 @@
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="53" parent="11" name="index_users_on_email">
+    <column id="53" parent="11" name="admin">
+      <Position>17</Position>
+      <DataType>boolean|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="54" parent="11" name="index_users_on_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="54" parent="11" name="index_users_on_reset_password_token">
+    <index id="55" parent="11" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="55" parent="11">
+    <key id="56" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
