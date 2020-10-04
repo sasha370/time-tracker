@@ -219,17 +219,21 @@
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="55" parent="11" name="index_users_on_email">
+    <column id="55" parent="11" name="phone">
+      <Position>17</Position>
+      <DataType>varchar|0s</DataType>
+    </column>
+    <index id="56" parent="11" name="index_users_on_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="56" parent="11" name="index_users_on_reset_password_token">
+    <index id="57" parent="11" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="57" parent="11">
+    <key id="58" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

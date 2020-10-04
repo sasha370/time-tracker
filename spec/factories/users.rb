@@ -14,6 +14,7 @@ FactoryBot.define do
     email { generate :email }
     password { '123456' }
     password_confirmation { '123456' }
+    phone { "5555555555" }
   end
 
   # Второй пользователь
@@ -23,6 +24,7 @@ FactoryBot.define do
     email { generate :email }
     password { '123456' }
     password_confirmation { '123456' }
+    phone { "5555555555" }
   end
 
   # Админ
@@ -32,6 +34,7 @@ FactoryBot.define do
     email { generate :email }
     password { '123456' }
     password_confirmation { '123456' }
+    phone { "5555555555" }
   end
 
   # Второй пользователь дял проверки авторизации к чужим записям
@@ -41,6 +44,7 @@ FactoryBot.define do
     email { generate :email }
     password { '123456' }
     password_confirmation { '123456' }
+    phone { "5555555555" }
   end
 
 

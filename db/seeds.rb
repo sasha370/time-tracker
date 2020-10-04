@@ -1,6 +1,15 @@
-
-AdminUser.create!(email: 'admin@admin.ru', password: '123456', first_name: 'Admin', last_name: 'First')
-User.create!(email: 'test@test.ru', password: '123456', first_name: 'Test', last_name: 'User')
+AdminUser.create!(
+    email: 'admin@admin.ru',
+    password: '123456',
+    first_name: 'Admin',
+    last_name: 'First',
+    phone: "+12096006734")
+User.create!(
+    email: 'test@test.ru',
+    password: '123456',
+    first_name: 'Test',
+    last_name: 'User',
+    phone: "+19999999999")
 
 10.times do |post|
   Post.create!(date: Date.today, rationale: "#{post} rationale content", user: AdminUser.first, overtime_request: 2.5)

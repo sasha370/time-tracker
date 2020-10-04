@@ -11,6 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
     posts: Field::HasMany,
     id: Field::Number.with_options(searchable: false),
     email: Field::String.with_options(searchable: true),
+    phone: Field::String.with_options(searchable: true),
     encrypted_password: Field::String.with_options(searchable: false),
     password: Field::String.with_options(searchable: false),
     password_confirmation: Field::String.with_options(searchable: false),
@@ -31,7 +32,7 @@ class UserDashboard < Administrate::BaseDashboard
   posts
 
   email
-
+phone
   type
   ].freeze
 
@@ -41,7 +42,7 @@ class UserDashboard < Administrate::BaseDashboard
   posts
 
   email
-
+phone
   first_name
   last_name
   type
@@ -56,6 +57,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   posts
   email
+  phone
   password
   password_confirmation
   first_name
