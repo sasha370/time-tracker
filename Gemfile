@@ -14,7 +14,7 @@ gem 'webpacker', '~> 4.0'
 gem 'devise-bootstrap-views'
 gem 'administrate'
 gem 'bourbon'
-
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug'

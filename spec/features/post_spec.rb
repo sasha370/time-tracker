@@ -47,7 +47,7 @@ describe 'navigate' do
 
   describe 'delete' do
     it 'can be delete' do
-      @post =  FactoryBot.create(:post)
+      @post = FactoryBot.create(:post)
       visit posts_path
       click_link("delete_#{@post.id}")
       expect(page.status_code).to eq(200)
@@ -87,26 +87,26 @@ describe 'navigate' do
 
   describe 'edit' do
     before do
-      @post = FactoryBot.create(:post)
-    end
-
-
-    it 'can edit post by clicking edit on index page' do
-      # Проверяем что кнопка Edit выдает ответ 200
-      visit posts_path
-      click_link("edit_#{@post.id}")
-      expect(page.status_code).to eq(200)
+      logout(:user)
+      @edit_user = User.create(first_name: "Edit", last_name: 'I can', email: 'edit@edit.eu', password: '123456')
+      @edit_post = FactoryBot.create(:post, user_id: @edit_user.id)
     end
 
     it 'can be editing' do
-      visit edit_post_path(@post)
+      login_as(@edit_user, scope: :user)
+      visit edit_post_path(@edit_post)
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Editing content"
       click_on 'Save'
       expect(page).to have_content("Editing content")
-
     end
 
+    it 'can not be edited by non Admin user' do
+      non_authorize_user = FactoryBot.create(:non_authorize_user)
+      login_as(non_authorize_user, scope: :user)
+      visit edit_post_path(@edit_post)
+      expect(current_path).to eq(root_path)
+    end
   end
 
 

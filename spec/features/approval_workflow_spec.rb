@@ -6,7 +6,7 @@ describe 'navigate' do
     login_as(@admin_user, scope: :user)
   end
 
-  describe ' edit' do
+  describe 'edit' do
     before do
       @post = FactoryBot.create(:post)
       visit edit_post_path(@post)
