@@ -1,1 +1,20 @@
-<%= @post.inspect %>
+<br>
+<div class="card">
+
+  <div class="card-header">
+    <h3> <%= @post.rationale %></h3>
+  </div>
+
+  <div class="card-body">
+    <h4><span> Overtime Amount Requested: </span> <%= @post.overtime_request %></h4>
+    <h4><span> User:  </span><%= @post.user_id %></h4>
+    <h4><span> Date: </span> <%= @post.date %></h4>
+    <h4><span> Current Stage of Approval:  </span> <%= @post.status %></h4>
+  </div>
+
+  <div class="card-footer">
+    <%= link_to "Edit", edit_post_path(@post), class: 'fa fa-edit fa-lg index-icons', id: "edit_#{@post.id}" if policy(@post).update? %>
+    |  
+    <%= link_to "Delete", post_path(@post), class: 'fa fa-trash  fa-lg index-icons', method: :delete, id: "delete_#{@post.id}", data: { confirm: "Are you sure?" } %>
+  </div>
+</div>

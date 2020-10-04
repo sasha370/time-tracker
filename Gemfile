@@ -15,6 +15,7 @@ gem 'devise-bootstrap-views'
 gem 'administrate'
 gem 'bourbon'
 gem 'pundit'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'
