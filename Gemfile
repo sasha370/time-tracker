@@ -16,6 +16,7 @@ gem 'administrate'
 gem 'bourbon'
 gem 'pundit'
 gem 'font-awesome-sass'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3', '~> 1.4'
   gem 'database_cleaner-active_record'
+  gem 'dotenv-rails'
 end
 
 group :development do
