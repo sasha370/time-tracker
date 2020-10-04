@@ -12,6 +12,7 @@ class PostDashboard < Administrate::BaseDashboard
     id: Field::Number.with_options(searchable: false),
     date: Field::Date.with_options(searchable: false),
     rationale: Field::Text.with_options(searchable: true),
+    status: Field::Select.with_options(searchable: true, collection: Post.statuses),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
   }.freeze
@@ -22,10 +23,11 @@ class PostDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  user
   id
-  date
+  user
+  status
   rationale
+  date
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,6 +37,7 @@ class PostDashboard < Administrate::BaseDashboard
   id
   date
   rationale
+  status
   created_at
   updated_at
   ].freeze
@@ -46,6 +49,7 @@ class PostDashboard < Administrate::BaseDashboard
   user
   date
   rationale
+  status
   ].freeze
 
   # COLLECTION_FILTERS

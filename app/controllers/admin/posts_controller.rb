@@ -40,6 +40,11 @@ module Admin
     #     transform_values { |value| value == "" ? nil : value }
     # end
 
+    # def post_params
+    #   params.require(:post).permit(:date, :rationale, :status)
+    # end
+
+
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
   end

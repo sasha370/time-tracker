@@ -12,8 +12,12 @@
 
       <div class="form-group ">
         <label for="rationale" class="col-sm-2 col-form-label">Rationale</label>
-        <%= f.text_area :rationale, class: 'form-control', required: true  %>
+        <%= f.text_area :rationale, class: 'form-control', required: true %>
       </div>
+
+<!--TODO убарть захаркоденный статус-->
+      <%= render  partial: 'status', locals: {f: f} if current_user.try(:type) == "AdminUser" %>
+
 
       <div class="form-group row">
         <div class="col-sm-12">
