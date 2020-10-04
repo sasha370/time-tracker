@@ -2,7 +2,6 @@ require 'rails_helper'
 
 # Тестирование всех функция связанных с Постами
 describe 'navigate' do
-
   # Перед любым тестом нам надо создать пользователя и зайти под ним
   before do
     # Пользователь генерируется в фабрике
@@ -12,7 +11,6 @@ describe 'navigate' do
 
   describe "index" do
     # проверяем экшн Index и отображение на странице
-
     before do
       visit posts_path # перед любым тестом заходим на страницу Index
     end
@@ -29,10 +27,21 @@ describe 'navigate' do
 
     it 'has a list of posts' do
       # На странице должны быть два соpданных в фабрике поста]]
-      post1 = FactoryBot.create(:post)
-      post2 = FactoryBot.create(:second_post)
+      post1 = FactoryBot.create(:post, user_id: @user.id)
+      post2 = FactoryBot.create(:second_post, user_id: @user.id)
       visit posts_path
       expect(page).to have_content(/Post1|Post2/)
+    end
+
+    it 'has a scope so that only post creators can see their posts' do
+      post1 = FactoryBot.create(:post, user_id: @user.id)
+      post2 = FactoryBot.create(:post, user_id: @user.id)
+
+      other_user = FactoryBot.create(:non_authorize_user)
+      post_from_other_user = Post.create(date: Date.today, rationale: "Post should not be seen", user_id: other_user.id)
+      visit posts_path
+
+      expect(page).to_not have_content('Post should not be seen')
     end
   end
 
@@ -47,12 +56,11 @@ describe 'navigate' do
 
   describe 'delete' do
     it 'can be delete' do
-      @post = FactoryBot.create(:post)
+      @post = FactoryBot.create(:post, user_id: @user.id)
       visit posts_path
       click_link("delete_#{@post.id}")
       expect(page.status_code).to eq(200)
     end
-
   end
 
   describe 'creation' do
@@ -108,6 +116,5 @@ describe 'navigate' do
       expect(current_path).to eq(root_path)
     end
   end
-
 
 end
