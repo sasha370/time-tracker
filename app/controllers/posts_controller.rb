@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = current_user.posts.order(created_at: :desc)
+    # Логика posts_by перенесена в Модель
+    @posts = Post.posts_by(current_user).order(created_at: :desc)
   end
 
   def new

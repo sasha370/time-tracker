@@ -2,11 +2,14 @@ require 'rails_helper'
 
 # Тестирование всех функция связанных с Постами
 describe 'navigate' do
-  # Перед любым тестом нам надо создать пользователя и зайти под ним
+  # Единожды генерируем пользователя и привязанный к нему пост
+  let(:user) { FactoryBot.create(:user) }
+  let(:post) do
+    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id)
+  end
+
   before do
-    # Пользователь генерируется в фабрике
-    @user = FactoryBot.create(:user)
-    login_as(@user, scope: :user)
+    login_as(user, scope: :user)
   end
 
   describe "index" do
@@ -27,16 +30,13 @@ describe 'navigate' do
 
     it 'has a list of posts' do
       # На странице должны быть два соpданных в фабрике поста]]
-      post1 = FactoryBot.create(:post, user_id: @user.id)
-      post2 = FactoryBot.create(:second_post, user_id: @user.id)
+      post1 = FactoryBot.create(:post, user_id: user.id)
+      post2 = FactoryBot.create(:second_post, user_id: user.id)
       visit posts_path
       expect(page).to have_content(/Post1|Post2/)
     end
 
     it 'has a scope so that only post creators can see their posts' do
-      post1 = FactoryBot.create(:post, user_id: @user.id)
-      post2 = FactoryBot.create(:post, user_id: @user.id)
-
       other_user = FactoryBot.create(:non_authorize_user)
       post_from_other_user = Post.create(date: Date.today, rationale: "Post should not be seen", user_id: other_user.id)
       visit posts_path
@@ -56,9 +56,12 @@ describe 'navigate' do
 
   describe 'delete' do
     it 'can be delete' do
-      @post = FactoryBot.create(:post, user_id: @user.id)
+      logout(:user)
+      delete_user = FactoryBot.create(:user)
+      login_as(delete_user, scope: :user)
+      delete_post = FactoryBot.create(:post, user_id: delete_user.id)
       visit posts_path
-      click_link("delete_#{@post.id}")
+      click_link("delete_#{delete_post.id}")
       expect(page.status_code).to eq(200)
     end
   end
@@ -94,15 +97,9 @@ describe 'navigate' do
   end
 
   describe 'edit' do
-    before do
-      logout(:user)
-      @edit_user = User.create(first_name: "Edit", last_name: 'I can', email: 'edit@edit.eu', password: '123456')
-      @edit_post = FactoryBot.create(:post, user_id: @edit_user.id)
-    end
 
     it 'can be editing' do
-      login_as(@edit_user, scope: :user)
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Editing content"
       click_on 'Save'
@@ -110,9 +107,10 @@ describe 'navigate' do
     end
 
     it 'can not be edited by non Admin user' do
+      logout(:user)
       non_authorize_user = FactoryBot.create(:non_authorize_user)
       login_as(non_authorize_user, scope: :user)
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
       expect(current_path).to eq(root_path)
     end
   end
