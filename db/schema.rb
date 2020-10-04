@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_132446) do
+ActiveRecord::Schema.define(version: 2020_10_04_150128) do
 
   create_table "posts", force: :cascade do |t|
     t.date "date"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_132446) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.integer "status", default: 0
+    t.decimal "overtime_request", default: "0.0"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

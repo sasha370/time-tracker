@@ -1,9 +1,14 @@
 
 AdminUser.create!(email: 'admin@admin.ru', password: '123456', first_name: 'Admin', last_name: 'First')
-puts 'Admin user was created'
+User.create!(email: 'test@test.ru', password: '123456', first_name: 'Test', last_name: 'User')
 
-40.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} rationale content", user: User.first)
+10.times do |post|
+  Post.create!(date: Date.today, rationale: "#{post} rationale content", user: AdminUser.first, overtime_request: 2.5)
+end
+5.times do |post|
+  Post.create!(date: Date.today, rationale: "#{post} rationale content", user: User.last, overtime_request: 1.5)
 end
 
-puts " 40 Posts was created"
+puts 'Admin user was created'
+puts 'User user was created'
+puts "Posts was created"
