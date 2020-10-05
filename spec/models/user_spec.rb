@@ -39,8 +39,8 @@ RSpec.describe User, type: :model do
 
     end
 
-    it 'require the phone attr to only have 10 chars' do
-      @user.phone = '12345678998'
+    it 'require the phone attr to only have 1-14 chars' do
+      @user.phone = '1234567899800025'
       expect(@user).to_not be_valid
     end
   end
