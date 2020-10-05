@@ -1,4 +1,20 @@
-<h2>Audit Logs</h2>
-<% @audit_logs.each do |al| %>
-  <%= render  @audit_logs, al: :audit_log  %>
-<% end %>
+<div class="container">
+
+  <h2 class="text-center">Audit Logs</h2>
+
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th> #</th>
+      <th> Employee</th>
+      <th> Week Starting</th>
+      <th> Confirmed at</th>
+      <th> Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @audit_logs %>
+    </tbody>
+  </table>
+
+</div>
