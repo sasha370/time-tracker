@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     # Логика posts_by перенесена в Модель
-    @posts = Post.posts_by(current_user).order(created_at: :desc)
+    @posts = Post.posts_by(current_user).page(params[:page]).per(10)
   end
 
   def new

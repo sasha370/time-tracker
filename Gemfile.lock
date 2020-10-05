@@ -340,6 +340,7 @@ DEPENDENCIES
   factory_bot_rails
   font-awesome-sass
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.2)
   pg
   puma (~> 4.1)

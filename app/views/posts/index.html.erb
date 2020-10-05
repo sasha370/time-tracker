@@ -6,7 +6,7 @@
 <table class="table table-striped table-hover">
   <thead>
   <tr>
-    <th> #</th>
+    <th> ID </th>
     <th class="text-center"> Overtime Requested</th>
     <th> Date</th>
     <th> User</th>
@@ -20,5 +20,5 @@
   <%= render @posts %>
   </tbody>
 </table>
-
+<%= paginate @posts %>
 </div>

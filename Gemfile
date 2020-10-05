@@ -17,6 +17,7 @@ gem 'bourbon'
 gem 'pundit'
 gem 'font-awesome-sass'
 gem 'twilio-ruby'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
