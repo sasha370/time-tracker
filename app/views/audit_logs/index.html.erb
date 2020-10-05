@@ -1,0 +1,4 @@
+<h2>Audit Logs</h2>
+<% @audit_logs.each do |al| %>
+  <%= render  @audit_logs, al: :audit_log  %>
+<% end %>
