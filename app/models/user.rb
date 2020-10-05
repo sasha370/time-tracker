@@ -8,9 +8,9 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  PHONE_REGEX = /\A[0-9]*\z/
+  PHONE_REGEX = /\A\d{1,14}$\z/
   validates_format_of :phone, with: PHONE_REGEX
-  validates :phone, length: {is: 10}
+  # validates :phone, length: {is: 10}
 
 
   def full_name
