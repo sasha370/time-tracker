@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  # Задаем группу Админов, которую будем использовать при проверке статуса User
+  def admin_types
+    ['AdminUser']
+  end
+
+
   # метод будет возвращать active в класс вкладки из которой вызван
   def active?(path)
     "active" if current_page?(path)
