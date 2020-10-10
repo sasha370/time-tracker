@@ -1,0 +1,20 @@
+<div class="col mb-3 ">
+  <div class="card p-2">
+
+    <h5>
+      <%= audit_log.user.full_name %>
+    </h5>
+
+    <p>
+      <span class="font-weight-bold"> Week Starting: </span>
+      <%= audit_log.start_date %>
+      <br>
+      <span class="font-weight-bold"> Confirmed at: </span>
+      <%= audit_log.end_date || status_badge('pending') %>
+      <br>
+      <span class="font-weight-bold"> Status: </span>
+      <%= status_badge(audit_log.status) %>
+    </p>
+  </div>
+
+</div>

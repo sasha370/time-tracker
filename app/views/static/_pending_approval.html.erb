@@ -1,25 +1,26 @@
 <div class="col mb-3 ">
-  <div class="card  body p-2">
+  <div class="card">
 
-    <h5>
-      <%= post.user.full_name %>
-    </h5>
+    <div class="card-body p-2">
 
-    <p>
-      <span class="font-weight-bold"> Rationale: </span>
-      <%= truncate post.rationale %>
-      <br>
-      <span class="font-weight-bold">  Date submitted: </span>
-      <%= post.date %>
-    </p>
-  </div>
-  <div class="card-footer ">
-    <div class="row">
-      <div class="col-md-6">
-        <%= link_to "Approve", approve_post_path(post), class: 'btn btn-sm  btn-outline-success btn-block', id: "approve_#{post.id}" %>
-      </div>
-      <div class="col-md-6">
-        <%= link_to "Review", edit_post_path(post), class: 'btn btn-sm btn-outline-warning btn-block' %>
+      <h5>
+        <%= post.user.full_name %>
+      </h5>
+
+        <span class="font-weight-bold"> Rationale: </span>
+        <%= truncate post.rationale %>
+        <br>
+        <span class="font-weight-bold">  Date submitted: </span>
+        <%= post.date %>
+    </div>
+    <div class="card-footer ">
+      <div class="row">
+        <div class="col-md-6">
+          <%= link_to "Approve", approve_post_path(post), class: 'btn btn-sm  btn-outline-success btn-block', id: "approve_#{post.id}" %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to "Review", edit_post_path(post), class: 'btn btn-sm btn-outline-warning btn-block' %>
+        </div>
       </div>
     </div>
   </div>
