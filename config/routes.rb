@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :audit_logs, except: [:new, :edit, :destroy]
+  resources :audit_logs, except: [:new, :edit, :destroy] do
+    member do
+      get 'confirmed'
+    end
+  end
   namespace :admin do
       resources :users
       resources :admin_users
