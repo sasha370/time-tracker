@@ -1,6 +1,7 @@
 module ApplicationHelper
 
   # Задаем группу Админов, которую будем использовать при проверке статуса User
+  # TODO
   def admin_types
     ['AdminUser']
   end

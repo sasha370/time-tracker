@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
 
+
+  # Задаем группу Админов, которую будем использовать при проверке статуса User
+  # TODO
+  def admin_types
+    ['AdminUser']
+  end
   private
 
   def user_not_authorized
