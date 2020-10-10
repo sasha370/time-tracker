@@ -1,4 +1,7 @@
 class AuditLog < ApplicationRecord
+
+  # AuditLog -  это список все переработок за последнюю неделю, неделя наяинается в ВС
+  # Таким образом у Пользователя будет 4-5 недельных выписок
   belongs_to :user
 
   validates_presence_of :status, :start_date, :user_id

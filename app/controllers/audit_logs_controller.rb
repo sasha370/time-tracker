@@ -10,4 +10,7 @@ class AuditLogsController < ApplicationController
     @audit_log.confirmed!
     redirect_to root_path, notice: "Thank you! Your confirmation was succesfully made!"
   end
+
+  private
+
 end

@@ -1,5 +1,6 @@
 <br>
 <div class="container-fluid ">
+
 <h2 class="text-center"> Items Pending Your Approval</h2>
   <div class="row row-cols-1 row-cols-md-3">
     <% @pending_approvals.each do |post| %>
@@ -9,13 +10,13 @@
 
   <hr>
 <h2 class="text-center"> Confirmation Log</h2>
-  <div class="container-fluid ">
+
     <div class="row row-cols-1 row-cols-md-3">
       <% @confirmation_log.each do |audit_log| %>
         <%= render 'confirmation_log', audit_log: audit_log %>
       <% end %>
     </div>
     <%= link_to "View all items...", audit_logs_path, class: "btn btn-primary" %>
-  </div>
+
   <br>
 </div>
