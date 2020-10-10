@@ -1,17 +1,30 @@
 <br>
 
 <div class="container-fluid">
+  <% if @pending_audit_confirmations.any? %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card  ">
+          <div class="card-header">
+            <h3> Pending Your Confirmation</h3>
+          </div>
+          <div class="card-body">
+            <%= render 'pending_audit_confirmation', pending_audit_confirmations: @pending_audit_confirmations %>
+          </div>
+        </div>
+  <% end %>
+  <br>
+
   <div class="row">
     <div class="col-md-12">
-
-    <div class="card  ">
-      <div class="card-header">
-        <h3> Pending Your Confirmation</h3>
-      </div>
-      <div class="card-body">
-        <%= render 'pending_audit_confirmation', pending_audit_confirmations: @pending_audit_confirmations %>
-    </div>
+      <div class="card  ">
+        <div class="card-header">
+          <%= link_to "New Request Overtime", new_post_path, class: 'btn btn-primary btn-block btn-lg' %>
+        </div>
       </div>
     </div>
   </div>
+  </div>
+  </div>
+</div>
 </div>
