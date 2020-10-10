@@ -1,1 +1,10 @@
-<h1> Admin</h1>
+<br>
+<h2 class="text-center"> Items Pending Your Approval</h2>
+<div class="container-fluid ">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @pending_approvals.each do |post| %>
+      <%= render 'pending_approval', post: post %>
+    <% end %>
+  </div>
+</div>
+
