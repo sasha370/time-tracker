@@ -17,6 +17,16 @@ FactoryBot.define do
     phone { "5555555555" }
   end
 
+  factory :employee, class: "Employee" do
+    first_name { 'John' }
+    last_name { 'Employee' }
+    email { generate :email }
+    password { '123456' }
+    password_confirmation { '123456' }
+    phone { "5555555555" }
+
+  end
+
   # Второй пользователь
   factory :second_user, class: "User" do
     first_name { 'John' }
