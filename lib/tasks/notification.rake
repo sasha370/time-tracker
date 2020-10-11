@@ -19,7 +19,7 @@ namespace :notification do
       admin_users = AdminUser.all
       if Post.submitted.any?
         admin_users.each do |admin|
-          ManagerMailer.email(admin).deliver_later
+          ManagerMailer.email(admin).deliver_now
           puts "Ok"
         end
       end

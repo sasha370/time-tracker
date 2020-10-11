@@ -20,13 +20,15 @@ Rails.application.configure do
   end
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :user_name => '82ce7144c2667c',
-      :password => '71a2e1a789352b',
-      :address => 'smtp.mailtrap.io',
-      :domain => 'smtp.mailtrap.io',
-      :port => '2525',
-      :authentication => :cram_md5
-  }
+  config.action_mailer.default_url_options = {:host => 'https://time-tracker-hq.herokuapp.com/', :protocol => 'https'}
+  config.action_mailer.raise_delivery_errors = true
+  # для остеживания всех ошибок
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+                                          email: {
+                                              deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+                                              email_prefix: '[PREFIX] ',
+                                              sender_address: %{"Time Tracker error" <support@university.com>},
+                                              exception_recipients: %w{budka52@bk.ru}
+                                          }
 
 end
