@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :audit_logs, dependent: :destroy
+  has_many :hands
 
   PHONE_REGEX = /\A\d{1,14}$\z/
   validates_format_of :phone, with: PHONE_REGEX

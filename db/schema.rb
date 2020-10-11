@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_142033) do
+ActiveRecord::Schema.define(version: 2020_10_11_171650) do
 
   create_table "audit_logs", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2020_10_05_142033) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_audit_logs_on_user_id"
+  end
+
+  create_table "hands", force: :cascade do |t|
+    t.integer "hand_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
