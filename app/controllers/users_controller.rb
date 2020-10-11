@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do
-    |u| u.permit( :email, :password, :first_name, :last_name, :password_confirmation, :admin, :type, :phone)
+    |u| u.permit( :email, :password, :first_name, :last_name, :password_confirmation, :admin, :type, :phone, :ssn, :company)
     end
 
     devise_parameter_sanitizer.permit(:account_update) do
-    |u| u.permit(:email, :first_name, :password, :last_name, :password_confirmation, :admin, :type, :phone, :current_password)
+    |u| u.permit(:email, :first_name, :password, :last_name, :password_confirmation, :admin, :type, :phone, :current_password, :ssn, :company)
     end
   end
 

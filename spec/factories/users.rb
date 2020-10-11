@@ -15,6 +15,8 @@ FactoryBot.define do
     password { '123456' }
     password_confirmation { '123456' }
     phone { "5555555555" }
+    ssn { '1234'}
+    company { 'ABC Ltd'}
   end
 
   factory :employee, class: "Employee" do
@@ -24,7 +26,8 @@ FactoryBot.define do
     password { '123456' }
     password_confirmation { '123456' }
     phone { "5555555555" }
-
+    ssn { '1234'}
+    company { 'ABC Ltd'}
   end
 
   # Второй пользователь
@@ -35,6 +38,8 @@ FactoryBot.define do
     password { '123456' }
     password_confirmation { '123456' }
     phone { "5555555555" }
+    ssn { '1234'}
+    company { 'ABC Ltd'}
   end
 
   # Админ
@@ -45,6 +50,8 @@ FactoryBot.define do
     password { '123456' }
     password_confirmation { '123456' }
     phone { "5555555555" }
+    ssn { '1234'}
+    company { 'ABC Ltd'}
   end
 
   # Второй пользователь дял проверки авторизации к чужим записям
@@ -55,6 +62,8 @@ FactoryBot.define do
     password { '123456' }
     password_confirmation { '123456' }
     phone { "5555555555" }
+    ssn { '1234'}
+    company { 'ABC Ltd'}
   end
 
 

@@ -18,6 +18,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
       first_name: Field::String,
       last_name: Field::String,
       type: Field::String,
+      ssn: Field::Number.with_options(searchable: true),
+      company: Field::String.with_options(searchable: true),
       created_at: Field::DateTime.with_options(searchable: false),
       updated_at: Field::DateTime.with_options(searchable: false),
 
@@ -34,6 +36,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
   email
 phone
   type
+  ssn
+  company
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -46,6 +50,8 @@ phone
   first_name
   last_name
   type
+  ssn
+  company
   created_at
   updated_at
 
@@ -63,7 +69,8 @@ phone
   first_name
   last_name
   type
-
+ssn
+  company
   ].freeze
 
   # COLLECTION_FILTERS
