@@ -55,7 +55,6 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="20" parent="7" name="user_id">
       <Position>2</Position>
@@ -70,10 +69,12 @@
     <column id="22" parent="7" name="start_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="23" parent="7" name="end_date">
       <Position>5</Position>
       <DataType>date|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="24" parent="7" name="created_at">
       <Position>6</Position>

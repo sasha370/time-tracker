@@ -4,7 +4,7 @@ admin_user  = AdminUser.create!(
     first_name: 'Admin',
     last_name: 'First',
     phone: "12096006734")
-user = User.create!(
+user = Employee.create!(
     email: 'test@test.ru',
     password: '123456',
     first_name: 'Test',
@@ -20,7 +20,7 @@ end
   AuditLog.create!(user_id: user.id, status: 0, start_date: (Date.today - 20.days))
 
 25.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!", user: User.last, overtime_request: 1.5)
+  Post.create!(date: Date.today, rationale: "#{post} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!", user: Employee.last, overtime_request: 1.5)
 end
 
 puts 'Admin user was created'
