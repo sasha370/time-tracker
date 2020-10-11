@@ -1,6 +1,8 @@
+
+
 <% flash.each do |name, message| %>
   <% if message.is_a?(String) %>
-    <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>" role="alert">
+    <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger'  %>  fixed-top " role="alert">
       <div>
         <%= message %>
         <button class="close" aria-hidden="true" data-dismiss="alert" type="button">

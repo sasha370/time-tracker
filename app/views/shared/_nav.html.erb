@@ -5,14 +5,14 @@
 <% if current_user %>
   <ul class="custom-nav nav nav-tabs">
     <li class="nav-item ">
-      <%= link_to "Home", root_path, class: "nav-link #{active?(root_path)}" %>
+      <%= link_to "", root_path, class: "fa fa-home nav-link #{active?(root_path)}" %>
     </li>
 
     <li class="nav-item ">
-      <%= link_to "Time Entries", posts_path, class: "nav-link #{active?(posts_path)} " %>
+      <%= link_to "Entries", posts_path, class: "nav-link #{active?(posts_path)} " %>
     </li>
 
-    <!--    Если пользователь в группе Админов, отображаем доп.вкладку TODO -->
+    <!--    Если пользователь в группе Админов, отображаем доп.вкладку -->
     <%= render 'shared/audit_log_tab' if policy(AuditLog).index? %>
 
     <li class="nav-item">
@@ -25,9 +25,11 @@
           Account </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to 'Edit profile', edit_user_registration_path, class: "dropdown-item" %>
-          <% if current_user.try(:type) == "AdminUser" %>
+
+          <% if admin_types.include?(current_user.type)%>
             <%= link_to 'Admin dashboard', admin_root_path, class: "dropdown-item" %>
           <% end %>
+
           <div class="dropdown-divider">
           </div>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

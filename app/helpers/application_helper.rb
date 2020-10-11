@@ -11,7 +11,7 @@ module ApplicationHelper
   def active?(path)
     "active" if current_page?(path)
   end
-
+  
   # Метод, который возвращает посчитанный span
   # Обработку спрятали в privat чтобы спрятать методику обработки
   def status_badge status

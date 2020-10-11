@@ -6,7 +6,7 @@ class StaticController < ApplicationController
       @confirmation_log = AuditLog.last(10)
     else
       # TODO
-      @pending_audit_confirmations = current_user.audit_logs.pending
+      @pending_audit_confirmations = current_user.audit_logs.pending.order(start_date: :desc)
     end
   end
 
