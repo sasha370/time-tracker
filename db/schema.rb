@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_160734) do
     t.string "last_sign_in_ip"
     t.string "first_name"
     t.string "last_name"
-    t.string "type", default: 'Employee'
+    t.string "type", default: "Employee"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone"
