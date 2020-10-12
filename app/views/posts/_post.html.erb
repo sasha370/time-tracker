@@ -1,9 +1,9 @@
 <tr>
-  <td>    <%= post.id %>  </td>
-  <td class="text-center">    <%= post.overtime_request %>  </td>
+  <td class="d-none d-md-block">    <%= post.id %>  </td>
+  <td class="text-center ">    <%= post.overtime_request %>  </td>
   <td>    <%= post.date %>  </td>
-  <td>    <%= post.user.full_name %>  </td>
-  <td>    <%= link_to truncate(post.rationale), post %>  </td>
+<!--  <td>    <%#= post.user.full_name %>  </td>-->
+  <td class="d-none d-md-block">    <%= link_to truncate(post.rationale), post %>  </td>
 <!--  в хелпере прописали отддельный метод, чтобы отображать цветные значки-->
   <td>   <%= status_badge post.status %></td>
 
