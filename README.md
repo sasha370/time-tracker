@@ -25,3 +25,9 @@
 https://time-tracker-hq.herokuapp.com/ 
 
 Pdf схема взаимосвязей в файле erd.pdf
+
+###Пользователи по умолчанию:
+
+admin@admin.ru   -  123456
+
+test@test.ru   - 123456
