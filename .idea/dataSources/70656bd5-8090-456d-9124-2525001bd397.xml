@@ -138,7 +138,7 @@
       <DataType>date|0s</DataType>
       <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="38" parent="9" name="rationale">
+    <column id="38" parent="9" name="work_perform">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <DefaultExpression>NULL</DefaultExpression>
@@ -163,7 +163,7 @@
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="43" parent="9" name="overtime_request">
+    <column id="43" parent="9" name="daily_hours">
       <Position>8</Position>
       <DataType>decimal|0s</DataType>
       <DefaultExpression>0.0</DefaultExpression>
@@ -301,17 +301,25 @@
       <Position>17</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <index id="74" parent="13" name="index_users_on_email">
+    <column id="74" parent="13" name="ssn">
+      <Position>18</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="75" parent="13" name="company">
+      <Position>19</Position>
+      <DataType>varchar|0s</DataType>
+    </column>
+    <index id="76" parent="13" name="index_users_on_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="75" parent="13" name="index_users_on_reset_password_token">
+    <index id="77" parent="13" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="76" parent="13">
+    <key id="78" parent="13">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

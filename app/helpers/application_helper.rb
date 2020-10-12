@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def employee?
-    current_user.type == "Employee"
+    current_user.type == "Employee" || nil
   end
 
   def admin?
