@@ -33,7 +33,8 @@ describe 'navigate' do
       post1 = FactoryBot.create(:post, user_id: user.id)
       post2 = FactoryBot.create(:second_post, user_id: user.id)
       visit posts_path
-      expect(page).to have_content(/Post1|Post2/)
+      expect(page).to have_text(post1.work_perform)
+      expect(page).to have_text(post2.work_perform)
     end
 
     it 'has a scope so that only post creators can see their posts' do
