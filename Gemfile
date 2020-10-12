@@ -20,6 +20,7 @@ gem 'twilio-ruby'
 gem 'kaminari'
 gem 'exception_notification', group: :production # отправляет все ошибки Heroku на почту
 gem 'newrelic_rpm'
+gem 'rails-erd', group: :development
 
 group :development, :test do
   gem 'byebug'
