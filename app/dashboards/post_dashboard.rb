@@ -12,7 +12,7 @@ class PostDashboard < Administrate::BaseDashboard
     id: Field::Number.with_options(searchable: false),
     date: Field::Date.with_options(searchable: false),
     rationale: Field::Text.with_options(searchable: true),
-    overtime_request: Field::Text.with_options(searchable: false),
+    daily_hours: Field::Text.with_options(searchable: false),
     status: Field::Select.with_options(searchable: false, collection: Post.statuses.keys),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
@@ -28,7 +28,7 @@ class PostDashboard < Administrate::BaseDashboard
   user
   status
   rationale
-  overtime_request
+  daily_hours
   date
   ].freeze
 
@@ -39,7 +39,7 @@ class PostDashboard < Administrate::BaseDashboard
   id
   date
   rationale
-  overtime_request
+  daily_hours
   status
   created_at
   updated_at
@@ -52,7 +52,7 @@ class PostDashboard < Administrate::BaseDashboard
   user
   date
   rationale
-  overtime_request
+  daily_hours
   status
   ].freeze
 

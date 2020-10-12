@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_173623) do
+ActiveRecord::Schema.define(version: 2020_10_12_154927) do
 
   create_table "audit_logs", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_11_173623) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.integer "status", default: 0
-    t.decimal "overtime_request", default: "0.0"
+    t.decimal "daily_hours", default: "0.0"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

@@ -5,7 +5,7 @@ describe 'navigate' do
   # Единожды генерируем пользователя и привязанный к нему пост
   let(:user) { FactoryBot.create(:user) }
   let(:post) do
-    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id, overtime_request: 3.5)
+    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id, daily_hours: 3.5)
   end
 
   before do
@@ -38,7 +38,7 @@ describe 'navigate' do
 
     it 'has a scope so that only post creators can see their posts' do
       other_user = FactoryBot.create(:non_authorize_user)
-      post_from_other_user = Post.create(date: Date.today, rationale: "Post should not be seen", user_id: other_user.id, overtime_request: 3.5)
+      post_from_other_user = Post.create(date: Date.today, rationale: "Post should not be seen", user_id: other_user.id, daily_hours: 3.5)
       visit posts_path
 
       expect(page).to_not have_content('Post should not be seen')
@@ -61,7 +61,7 @@ describe 'navigate' do
       logout(:user)
       delete_user = FactoryBot.create(:user)
       login_as(delete_user, scope: :user)
-      delete_post = FactoryBot.create(:post, user_id: delete_user.id, overtime_request: 3.5)
+      delete_post = FactoryBot.create(:post, user_id: delete_user.id, daily_hours: 3.5)
       visit posts_path
       click_link("delete_#{delete_post.id}")
       expect(page.status_code).to eq(200)
@@ -84,14 +84,14 @@ describe 'navigate' do
     it 'can be created from new form page ' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Some rationale"
-      fill_in 'post[overtime_request]', with: 4.5
+      fill_in 'post[daily_hours]', with: 4.5
       expect { click_on "Save"}.to change(Post, :count).by(1)
     end
 
     it 'will have a user associated it' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "User association"
-      fill_in 'post[overtime_request]', with: 4.5
+      fill_in 'post[daily_hours]', with: 4.5
 
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("User association")

@@ -20,7 +20,7 @@ AuditLog.create!(user_id: user.id, status: 0, start_date: (Date.today - 13.days)
 AuditLog.create!(user_id: user.id, status: 0, start_date: (Date.today - 20.days))
 
 25.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!", user: Employee.last, overtime_request: 1.5)
+  Post.create!(date: Date.today, rationale: "#{post} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!", user: Employee.last, daily_hours: 1.5)
 end
 
 puts 'Admin user was created'
