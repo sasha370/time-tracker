@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_154927) do
+ActiveRecord::Schema.define(version: 2020_10_12_160734) do
 
   create_table "audit_logs", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_154927) do
 
   create_table "posts", force: :cascade do |t|
     t.date "date"
-    t.text "rationale"
+    t.text "work_perform"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false

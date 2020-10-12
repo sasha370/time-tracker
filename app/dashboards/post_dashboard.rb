@@ -11,7 +11,7 @@ class PostDashboard < Administrate::BaseDashboard
     user: Field::BelongsTo.with_options(searchable: true),
     id: Field::Number.with_options(searchable: false),
     date: Field::Date.with_options(searchable: false),
-    rationale: Field::Text.with_options(searchable: true),
+    work_perform: Field::Text.with_options(searchable: true),
     daily_hours: Field::Text.with_options(searchable: false),
     status: Field::Select.with_options(searchable: false, collection: Post.statuses.keys),
     created_at: Field::DateTime.with_options(searchable: false),
@@ -27,7 +27,7 @@ class PostDashboard < Administrate::BaseDashboard
   id
   user
   status
-  rationale
+  work_perform
   daily_hours
   date
   ].freeze
@@ -38,7 +38,7 @@ class PostDashboard < Administrate::BaseDashboard
   user
   id
   date
-  rationale
+  work_perform
   daily_hours
   status
   created_at
@@ -51,7 +51,7 @@ class PostDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   user
   date
-  rationale
+  work_perform
   daily_hours
   status
   ].freeze

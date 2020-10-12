@@ -4,14 +4,14 @@ FactoryBot.define do
 
   factory :post, class: "Post" do
     date { Date.today }
-    rationale { "Post1" }
+    work_perform { "Post1" }
     user
     daily_hours { 3.5 }
   end
 
   factory :second_post, class: "Post" do
     date { Date.yesterday }
-    rationale { "Post2" }
+    work_perform { "Post2" }
     user
    daily_hours { 3.5 }
   end

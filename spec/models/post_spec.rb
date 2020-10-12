@@ -20,7 +20,7 @@ RSpec.describe Post, type: :model do
     it " cannot be created without a date and rational" do
       # проверяем что нельзя создать пост с пустыми полями
       @post.date = nil
-      @post.rationale = nil
+      @post.work_perform = nil
       @post.daily_hours = nil
       expect(@post).to_not be_valid
     end
