@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :approve]
 
   def index
-    # Логика posts_by перенесена в Модель
     @posts = Post.posts_by(current_user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
@@ -16,7 +15,6 @@ class PostsController < ApplicationController
     @post.approved!
     redirect_to root_path, notice: "Post approved"
   end
-
 
   def create
     @post = Post.new(post_params)
