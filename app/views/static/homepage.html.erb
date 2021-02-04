@@ -1,4 +1,4 @@
-<!--   Проверяем входит ли текущий пользователь в одну из групп Админов-->
+
 <% if admin_types.include?(current_user.try(:type)) %>
   <%= render 'admin' %>
 <% else %>
