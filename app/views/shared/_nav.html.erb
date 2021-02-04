@@ -8,7 +8,7 @@
       <%= link_to "", root_path, class: "fa fa-home nav-link #{active?(root_path)}" %>
     </li>
 
-    <!--    Если пользователь в группе Админов, отображаем доп.вкладку -->
+
     <%= render 'shared/audit_log_tab' if admin? %>
 
     <% if employee? %>
